@@ -1,0 +1,29 @@
+{
+    "ResourceTypes": [
+        "INSTANCE"
+    ],
+    "TargetTags": [
+        {
+            "Key": "Name",
+            "Value": "testinst1"
+        }
+    ],
+    "Schedules":[
+        {
+            "Name": "DailySnapshots",
+            "CopyTags": true,
+            "TagsToAdd": [
+                {
+                    "Key": "type",
+                     "Value": "myDailySnapshot"
+                }
+            ],
+            "CreateRule": {
+                "CronExpression": "cron(0 16 ? * SUN *)"
+            },
+            "RetainRule": {
+                "Count":5
+}
+        }
+    ]
+}
